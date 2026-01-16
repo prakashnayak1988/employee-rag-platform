@@ -1,7 +1,16 @@
-
 version: "3.8"
+
 services:
   postgres:
     image: pgvector/pgvector:pg16
     ports:
       - "5432:5432"
+    environment:
+      POSTGRES_DB: employee_rag
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+  kafka:
+    image: bitnami/kafka:latest
+    ports:
+      - "9092:9092"
